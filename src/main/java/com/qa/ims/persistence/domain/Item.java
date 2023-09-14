@@ -6,19 +6,19 @@ public class Item
     private Long id;
     private String title;
     private String author;
-    private int pages;
+    private float price;
 
-    public Item(String title, String author, int pages) {
+    public Item(String title, String author, float price) {
         this.setTitle(title);
         this.setAuthor(author);
-        this.setPages(pages);
+        this.setPrice(price);
     }
 
-    public Item(Long id, String title, String author, int pages) {
+    public Item(Long id, String title, String author, float price) {
         this.setId(id);
         this.setTitle(title);
         this.setAuthor(author);
-        this.setPages(pages);
+        this.setPrice(price);
     }
 
     public Long getId() {
@@ -45,17 +45,17 @@ public class Item
         this.author = author;
     }
 
-    public int getPages() {
-        return pages;
+    public float getPrice() {
+        return price;
     }
 
-     public void setPages(int pages) {
-         this.pages = pages;
+     public void setPrice(float price) {
+         this.price = price;
      }
 
      @Override
     public String toString() {
-        return "id:" + id + " Title: " + title + " Author: " + author + " Pages: " + pages;
+        return "id:" + id + " Title: " + title + " Author: " + author + " Price: " + price;
     }
 
     @Override

@@ -1,39 +1,88 @@
 package com.qa.ims.persistence.domain;
 
+import java.util.ArrayList;
+import java.util.Objects;
+
 public class Order {
+		
+		private Long id;
+		private ArrayList<Item> orderItems;
+		private Long customerID;
+		
+		
 
-    private Long id;
-    private int orderDate;
-    private int orderPrice;
+		public Order(Long id, ArrayList<Item> orderItems, Long customerID) {
+			super();
+			this.id = id;
+			this.orderItems = orderItems;
+			this.customerID = customerID;
+		}
 
-    public Order(Long id, int orderDate, int orderPrice) {
-        this.id = id;
-        this.orderDate = orderDate;
-        this.orderPrice = orderPrice;
-    }
+		public Order(Long customerID) {
+			super();
+			this.customerID = customerID;
+		}
+		
+		public Order(ArrayList<Item> orderItems, Long customerID) {
+			super();
+			this.orderItems = orderItems;
+			this.customerID = customerID;
+		}
 
-    public Long getId() {
-        return id;
-    }
+		public Order(Long id, Long customerID) {
+			super();
+			this.id = id;
+			this.customerID = customerID;
+		}
 
-    public void setId(Long id) {
-        this.id = id;
-    }
+		public Long getID() {
+			return id;
+		}
 
-    public int getOrderDate() {
-        return orderDate;
-    }
+		public void setID(Long id) {
+			this.id = id;
+		}
 
-    public void setOrderDate(int orderDate) {
-        this.orderDate = orderDate;
-    }
+		public ArrayList<Item> getOrderItems() {
+			return orderItems;
+		}
 
-    public int getOrderPrice() {
-        return orderPrice;
-    }
+		public void setOrderItems(ArrayList<Item> orderItems) {
+			this.orderItems = orderItems;
+		}
 
-    public void setOrderPrice(int orderPrice) {
-        this.orderPrice = orderPrice;
-    }
+		public Long getCustomerID() {
+			return customerID;
+		}
 
-}
+		public void setCustomerID(Long customerID) {
+			this.customerID = customerID;
+		}
+
+		@Override
+		public int hashCode() {
+			return Objects.hash(customerID, id, orderItems);
+		}
+
+		@Override
+		public boolean equals(Object obj) {
+			if (this == obj)
+				return true;
+			if (obj == null)
+				return false;
+			if (getClass() != obj.getClass())
+				return false;
+			Order other = (Order) obj;
+			return Objects.equals(customerID, other.customerID) && Objects.equals(id, other.id)
+					&& Objects.equals(orderItems, other.orderItems);
+		}
+
+		@Override
+		public String toString() {
+			return "Order [orderID=" + id + ", orderItems=" + orderItems + ", customerID=" + customerID + "]";
+		}
+		
+		
+		
+		
+		}
