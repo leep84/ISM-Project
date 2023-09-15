@@ -21,9 +21,9 @@ public class OrderDAO {
 	
 	public Order modelFromResultSet(ResultSet resultSet) throws SQLException {
 		Long id = resultSet.getLong("id");
-		ArrayList<Order> Item = getOrderItems(id);
+		ArrayList<Item> orderItems = readItems(id);
 		Long customerID = resultSet.getLong("customerID");
-		return new Order(id, Item, order);
+		return new Order(id, orderItems, customerID);
 	}
 	
 
